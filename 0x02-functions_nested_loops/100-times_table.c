@@ -11,7 +11,7 @@ int get_num_digits(int num)
 
 	if (num == 0)
 		return (1);
-	
+
 	digits = 0;
 	while (num)
 	{
@@ -60,21 +60,18 @@ void print_num(int num, int slots)
 void print_times_table(int n)
 {
 	int row, col, num_slots = 4;
-	
+
 	if (n > 15 || n < 0)
 		return;
 
 	for (row = 0; row <= n; row++)
 	{
 		_putchar('0');
-		_putchar(',');
 		for (col = 1; col <= n; col++)
 		{
+			_putchar(',');
 			print_num(row * col, num_slots);
-			if (col < n)
-				_putchar(',');
-			else
-				_putchar('\n');
 		}
+		_putchar('\n');
 	}
 }

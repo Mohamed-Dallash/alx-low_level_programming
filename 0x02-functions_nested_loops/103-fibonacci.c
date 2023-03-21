@@ -7,7 +7,7 @@
  */
 int main(void)
 {
-	long int temp, ans = 0, lastlast = 1, last = 2;
+	long int temp, ans = 2, lastlast = 1, last = 2;
 
 	while (last + lastlast <= 4000000)
 	{

@@ -9,7 +9,7 @@ void puts2(char *str)
 	{
 		_putchar(*str);
 		str++;
-		if (!str)
+		if (!(*str))
 		{
 			break;
 		}

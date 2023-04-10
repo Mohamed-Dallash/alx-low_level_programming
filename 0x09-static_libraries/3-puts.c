@@ -1,3 +1,9 @@
+#include "main.h"
 void _puts(char *s){
-	return;
+	while(*s)
+	{
+		_putchar(*s);
+		s++;
+	}
+	_putchar('\n');
 }

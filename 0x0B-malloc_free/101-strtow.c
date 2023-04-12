@@ -98,6 +98,6 @@ char **strtow(char *str)
 			str++;
 	}
 	ans[i] = NULL;
-	free(sizes)
+	free(sizes);
 	return (ans);
 }

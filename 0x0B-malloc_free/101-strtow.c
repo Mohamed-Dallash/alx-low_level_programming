@@ -78,7 +78,7 @@ char **strtow(char *str)
 
 	sizes = get_sizes(num_words, str);
 	for (i = 0; i < num_words; i++)
-		ans[i] = malloc(sizeof(char) * (sizes[i] + 1));
+		ans[i] = malloc(sizeof(char) * (sizes[i]));
 	i = 0;
 	while (*str)
 	{

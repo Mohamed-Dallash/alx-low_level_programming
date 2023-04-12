@@ -10,18 +10,24 @@
  */
 char *str_concat(char *s1, char *s2)
 {
-	unsigned long int i = 0, j;
-	char *cpy = malloc(sizeof(char) * (strlen(s1) + strlen(s2) + 1));
+	unsigned long int i = 0, j, l1 = 0, l2 = 0;
+	char *cpy;
+	if (s1 != NULL)
+		l1 = strlen(s1);
+	if (s2 != NULL)
+		l2 = strlen(s2);
+
+	cpy = malloc(sizeof(char) * (l1 + l2 + 1));
 
 	if (cpy == NULL)
 		return (NULL);
 
-	for (j = 0; j < strlen(s1); j++)
+	for (j = 0; j < l1; j++)
 	{
 		cpy[i] = s1[j];
 		i++;
 	}
-	for (j = 0; j < strlen(s2); j++)
+	for (j = 0; j < l2; j++)
 	{
 		cpy[i] = s2[j];
 		i++;

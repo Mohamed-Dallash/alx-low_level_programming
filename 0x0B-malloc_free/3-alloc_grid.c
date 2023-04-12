@@ -1,5 +1,17 @@
 #include "main.h"
 /**
+ * free_mem - frees allocated memory
+ * @grid: grid to be freed
+ * @height: grid height
+ */
+void free_mem(int **grid, int height)
+{
+	while (height--)
+		free(grid[height]);
+	free(grid);
+}
+
+/**
  * alloc_grid - Creates a two dimensional array (grid)
  * @width: grid width
  * @height: grid height
@@ -8,7 +20,7 @@
  */
 int **alloc_grid(int width, int height)
 {
-	int **grid, i;
+	int **grid, h = 0, i;
 
 	if (width <= 0 || height <= 0)
 		return (NULL);
@@ -18,13 +30,17 @@ int **alloc_grid(int width, int height)
 	if (grid == NULL)
 		return (NULL);
 
-	while (height--)
+	while (h < height)
 	{
-		grid[height] = malloc(sizeof(int) * width);
-		if (grid[height] == NULL)
+		grid[h] = malloc(sizeof(int) * width);
+		if (grid[h] == NULL)
+		{
+			free_mem(grid, h - 1);
 			return (NULL);
+		}
 		for (i = 0; i < width; i++)
-			grid[height][i] = 0;
+			grid[h][i] = 0;
+		h++;
 	}
 
 	return (grid);

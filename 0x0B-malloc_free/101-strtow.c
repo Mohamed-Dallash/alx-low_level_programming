@@ -1,4 +1,9 @@
 #include "main.h"
+/**
+ * get_num_words - gets the number of words in a string
+ * @str: the given string
+ * Return: Number of words in the given string
+ */
 int get_num_words(char *str)
 {
 	int ans = 0;
@@ -16,11 +21,19 @@ int get_num_words(char *str)
 		else
 			str++;
 	}
-	return ans;
+	return (ans);
 }
+
+/**
+ * get_sizes - gets the size of each word in the string
+ * @num_words: number of words in the string
+ * @str: the given string
+ * Return: Pointer to the start of the array of integers,
+ *	where the i-th index has the size of the i-th word (0 indexed)
+ */
 int *get_sizes(int num_words, char *str)
 {
-	int i = 0,temp;
+	int i = 0, temp;
 	int *sizes = malloc(sizeof(int) * num_words);
 
 	while (*str)
@@ -38,9 +51,8 @@ int *get_sizes(int num_words, char *str)
 		else
 			str++;
 	}
-	return sizes;
+	return (sizes);
 }
-
 
 /**
  * strtow - splits a string into words
@@ -57,7 +69,9 @@ char **strtow(char *str)
 	if (str == NULL || strlen(str) == 0)
 		return (NULL);
 	num_words = get_num_words(str);
-	ans = malloc(sizeof(char *) * num_words);
+	if (num_words == 0)
+		return (NULL);
+	ans = malloc(sizeof(char *) * (num_words + 1));
 
 	if (ans == NULL)
 		return (NULL);
@@ -83,6 +97,7 @@ char **strtow(char *str)
 		else
 			str++;
 	}
+	ans[i] = NULL;
 
 	return (ans);
 }

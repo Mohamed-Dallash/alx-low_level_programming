@@ -9,10 +9,15 @@
  */
 char *_strdup(char *str)
 {
-	char *cpy = malloc(sizeof(char) * strlen(str));
-	long unsigned int i;
+	char *cpy;
+	unsigned long int i;
 
-	if (cpy == NULL || str == NULL)
+	if (str == NULL)
+		return (NULL);
+
+	cpy = malloc(sizeof(char) * (strlen(str) + 1));
+
+	if (cpy == NULL)
 		return (NULL);
 	for (i = 0; i < strlen(str); i++)
 		cpy[i] = str[i];

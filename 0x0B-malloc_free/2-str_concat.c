@@ -12,6 +12,7 @@ char *str_concat(char *s1, char *s2)
 {
 	unsigned long int i = 0, j, l1 = 0, l2 = 0;
 	char *cpy;
+
 	if (s1 != NULL)
 		l1 = strlen(s1);
 	if (s2 != NULL)
